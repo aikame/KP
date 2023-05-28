@@ -50,6 +50,7 @@
             this.ReqBox.GridLines = true;
             this.ReqBox.HideSelection = false;
             this.ReqBox.Location = new System.Drawing.Point(13, 12);
+            this.ReqBox.MultiSelect = false;
             this.ReqBox.Name = "ReqBox";
             this.ReqBox.Size = new System.Drawing.Size(426, 379);
             this.ReqBox.TabIndex = 2;
