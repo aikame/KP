@@ -29,14 +29,14 @@
     private void InitializeComponent()
     {
             this.createReq = new System.Windows.Forms.Button();
-            this.ReqBox = new System.Windows.Forms.ListBox();
+            this.ReqBox = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // createReq
             // 
-            this.createReq.Location = new System.Drawing.Point(13, 414);
+            this.createReq.Location = new System.Drawing.Point(13, 397);
             this.createReq.Name = "createReq";
-            this.createReq.Size = new System.Drawing.Size(426, 24);
+            this.createReq.Size = new System.Drawing.Size(426, 41);
             this.createReq.TabIndex = 1;
             this.createReq.Text = "Создать заявку";
             this.createReq.UseVisualStyleBackColor = true;
@@ -44,14 +44,17 @@
             // 
             // ReqBox
             // 
-            this.ReqBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReqBox.FormattingEnabled = true;
-            this.ReqBox.ItemHeight = 24;
+            this.ReqBox.AllowColumnReorder = true;
+            this.ReqBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReqBox.FullRowSelect = true;
+            this.ReqBox.GridLines = true;
+            this.ReqBox.HideSelection = false;
             this.ReqBox.Location = new System.Drawing.Point(13, 12);
-            this.ReqBox.Margin = new System.Windows.Forms.Padding(30);
             this.ReqBox.Name = "ReqBox";
-            this.ReqBox.Size = new System.Drawing.Size(426, 388);
+            this.ReqBox.Size = new System.Drawing.Size(426, 379);
             this.ReqBox.TabIndex = 2;
+            this.ReqBox.UseCompatibleStateImageBehavior = false;
+            this.ReqBox.View = System.Windows.Forms.View.List;
             this.ReqBox.DoubleClick += new System.EventHandler(this.ReqBox_DoubleClick);
             // 
             // RequestMenu
@@ -70,6 +73,6 @@
 
         #endregion
         private System.Windows.Forms.Button createReq;
-        private System.Windows.Forms.ListBox ReqBox;
+        private System.Windows.Forms.ListView ReqBox;
     }
 }

@@ -21,16 +21,23 @@ namespace KP
         {
             if (Auth.CurrentUser.AccountLevel < 1)
             {
-                foreach (var r in _db.GetRequestsByUser(Auth.CurrentUser)) 
+                foreach (var r in _db.GetRequestsByUser(Auth.CurrentUser))
                 {
-                    ReqBox.Items.Add(r.Article);
+                    var TempItem = new ListViewItem();
+                    TempItem.SubItems.Add(r.RequestId.ToString());
+                    TempItem.Text = r.Article.ToString();
+                    ReqBox.Items.Add(TempItem);
                 }
+                createReq.Enabled = true;
             }
-            else 
-                foreach(var r in _db.GetAllRequests())
+            else
+            {
+                foreach (var r in _db.GetAllRequests())
                 {
                     ReqBox.Items.Add(r.Article);
                 }
+                createReq.Enabled = false;
+            }
         }
 
         private void createReq_Click(object sender, EventArgs e)
@@ -41,10 +48,19 @@ namespace KP
 
         private void ReqBox_DoubleClick(object sender, EventArgs e)
         {
-            var req = _db.GetRequestByArticle(ReqBox.Items[ReqBox.SelectedIndex].ToString());
-            if (req != null) {
-                var window = new RequestEdit(this, false, _db, req);
-                window.Show();
+            var req = _db.GetRequestById(Convert.ToInt16(ReqBox.SelectedItems[0].SubItems[1].Text));
+
+            if (req != null)
+            {
+                if (Auth.CurrentUser.AccountLevel < 1) 
+                { 
+                    var window = new RequestEdit(this, false, _db, req);
+                    window.Show();
+                }
+                else
+                {
+                    //
+                }
             }
         }
     }

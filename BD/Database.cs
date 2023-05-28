@@ -82,9 +82,9 @@ namespace KP.BD
             return _context.Request.AsEnumerable().Where(r => r.UserId == user.UserId).ToList();
         }
 
-        public RequestModel GetRequestByArticle (string  article)
+        public RequestModel GetRequestById (int Id)
         {
-            return _context.Request.AsEnumerable().Where(r => r.Article == article).FirstOrDefault();
+            return _context.Request.AsEnumerable().Where(r => r.RequestId == Id).FirstOrDefault();
         }
 
         public List<RequestModel> GetAllRequests()

@@ -79,6 +79,7 @@
             this.save.Text = "Сохранить";
             this.save.UseVisualStyleBackColor = true;
             this.save.UseWaitCursor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // CancelB
             // 

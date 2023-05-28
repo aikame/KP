@@ -9,13 +9,12 @@ namespace KP
     {
         readonly Database _db;
         readonly bool _m;
-        bool _m2;
         RequestModel? _requestModel;
         readonly Form _parent;
         public RequestEdit(Form parent, bool mode, Database db, RequestModel? rq)
         {
             _parent = parent;
-            _m = mode;
+            _m = mode; // Создание - 0, Редактирование - 1
             _db = db;
             _requestModel = rq;
             InitializeComponent();
@@ -23,21 +22,8 @@ namespace KP
 
         private void RequestEdit_Load(object sender, EventArgs e)
         {
-            if (_m)
-            {
-                saveB.Text = "Принять";
-                cancelB.Text = "Отменить";
-                this.Text = "Рассмотрение заявки";
-            }
-            else
-            {
-                saveB.Text = "Сохранить";
-                cancelB.Text = "Отменить";
-                this.Text = "Создание/редактирование заявки";
-            }
             if (_requestModel != null)
             {
-                _m2 = true;
                 artbox.Text = _requestModel.Article;
                 descbox.Text = _requestModel.Description;
             }
@@ -52,7 +38,14 @@ namespace KP
                 NewRequest.Description = descbox.Text;
                 NewRequest.UserId = Auth.CurrentUser.UserId;
                 NewRequest.Status = null;
-                _db.AddRequest(NewRequest);
+                if (!_m)
+                {
+                    _db.AddRequest(NewRequest);
+                }
+                else
+                {
+                    _db.UpdateRequest(_requestModel, NewRequest);
+                }
                 _parent.Update();
                 this.Close();
             }
