@@ -34,6 +34,7 @@
             this.cancelB = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.authorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // artbox
@@ -48,7 +49,7 @@
             this.descbox.Location = new System.Drawing.Point(12, 112);
             this.descbox.Multiline = true;
             this.descbox.Name = "descbox";
-            this.descbox.Size = new System.Drawing.Size(371, 300);
+            this.descbox.Size = new System.Drawing.Size(371, 281);
             this.descbox.TabIndex = 1;
             // 
             // saveB
@@ -89,11 +90,21 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Описание";
             // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Location = new System.Drawing.Point(16, 400);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(54, 13);
+            this.authorLabel.TabIndex = 6;
+            this.authorLabel.Text = "%Author%";
+            // 
             // RequestEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 471);
+            this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelB);
@@ -116,5 +127,6 @@
         private System.Windows.Forms.Button cancelB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label authorLabel;
     }
 }

@@ -43,21 +43,9 @@ namespace KP.BD
             return;
         }
 
-        public void UpdateRequest (RequestModel oldRequest, RequestModel newRequest) 
+        public void UpdateRequest (RequestModel newRequest) 
         {
-            if (oldRequest == newRequest)
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                var result = MessageBox.Show("Изменений нет\nВы уверены, что хотите продолжить?",
-                                            "Внимание!", 
-                                            buttons);
-                if (result == DialogResult.No) { return; }
-            }
-            else 
-            {
-                _context.Request.Remove(oldRequest);
-                _context.Request.Add(newRequest);
-            }
+            _context.Request.AddOrUpdate(newRequest);
             _context.SaveChanges();
         }
 
