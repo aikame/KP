@@ -43,14 +43,6 @@ namespace KP
                         break;
                     case windowmode.update:
                         NewRequest.RequestId = _requestModel.RequestId;
-                        if (_requestModel == NewRequest)
-                        {
-                            var result = MessageBox.Show("Изменений нет!",
-                                                        "Внимание!", 
-                                                        MessageBoxButtons.OK);
-                            Close();
-                        }
-                        else 
                             _db.UpdateRequest(NewRequest); 
                         break;
                 }

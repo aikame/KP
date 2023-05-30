@@ -1,4 +1,5 @@
 ﻿using KP.BD.Models;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -48,9 +49,56 @@ namespace KP.BD
             return;
         }
 
+        public void RemoveRequest(RequestModel request)
+        {
+            _context.Request.Remove(request); 
+            _context.SaveChanges();
+        }
+
         public void UpdateRequest (RequestModel newRequest) 
         {
             _context.Request.AddOrUpdate(newRequest);
+            _context.SaveChanges();
+        }
+
+        public void AddEvent(EventModel newEvent)
+        {
+            if (_context.Event.AsEnumerable().Where(e => e.Article == newEvent.Article && e.Description == newEvent.Description).Any())
+            {
+                MessageBox.Show
+                    (
+                    "Данное событие уже существует!", 
+                    "Ошибка!", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
+            _context.Event.Add(newEvent);
+            _context.SaveChanges();
+        }
+
+        public void UpdateEvent(EventModel prevEvent, EventModel newEvent)
+        {
+            _context.Event.Remove(prevEvent);
+            _context.Event.Add(newEvent);
+            _context.SaveChanges();
+        }
+        public void RemoveEvent(EventModel Event)
+        {
+            _context.Event.Remove(Event);
+            _context.SaveChanges();
+        }
+
+        public void SetCompetition (UserModel User, EventModel Event, bool IsCompetitor) 
+        {
+            var newComp = new CompetitorModel
+            {
+                UserId = User.UserId,
+                EventId = Event.EventId,
+                IsCompetite = IsCompetitor,
+            };
+            _context.CompetitorModel.AddOrUpdate(newComp);
             _context.SaveChanges();
         }
 
@@ -93,6 +141,11 @@ namespace KP.BD
         public List<EventModel> GetEvents ()
         {
             return _context.Event.AsEnumerable().ToList();
+        }
+
+        public EventModel GetEventById (int Id)
+        {
+            return _context.Event.AsEnumerable().Where(e => e.EventId == Id).FirstOrDefault();
         }
 
         public List<CompetitorModel> GetCompetitorsByEvent (EventModel evt) 

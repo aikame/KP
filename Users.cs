@@ -57,7 +57,9 @@ namespace KP
             {
                 return;
             }
-            var result = MessageBox.Show("Вы уверены, что хотите удалить пользователя?", "Подтвердите действие", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Вы уверены, что хотите удалить пользователя?",
+     "Подтвердите действие",
+     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 _db.RemoveUser(user);

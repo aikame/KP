@@ -35,6 +35,7 @@
             this.save = new System.Windows.Forms.Button();
             this.CancelB = new System.Windows.Forms.Button();
             this.authorLabel = new System.Windows.Forms.Label();
+            this.showCompB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // arttext
@@ -74,7 +75,7 @@
             // 
             this.save.Location = new System.Drawing.Point(16, 452);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(165, 31);
+            this.save.Size = new System.Drawing.Size(178, 31);
             this.save.TabIndex = 4;
             this.save.Text = "Сохранить";
             this.save.UseVisualStyleBackColor = true;
@@ -83,13 +84,14 @@
             // 
             // CancelB
             // 
-            this.CancelB.Location = new System.Drawing.Point(201, 452);
+            this.CancelB.Location = new System.Drawing.Point(200, 452);
             this.CancelB.Name = "CancelB";
-            this.CancelB.Size = new System.Drawing.Size(165, 31);
+            this.CancelB.Size = new System.Drawing.Size(182, 31);
             this.CancelB.TabIndex = 5;
             this.CancelB.Text = "Отмена";
             this.CancelB.UseVisualStyleBackColor = true;
             this.CancelB.UseWaitCursor = true;
+            this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
             // 
             // authorLabel
             // 
@@ -100,11 +102,23 @@
             this.authorLabel.TabIndex = 6;
             this.authorLabel.Text = "%автор%";
             // 
+            // showCompB
+            // 
+            this.showCompB.Location = new System.Drawing.Point(16, 26);
+            this.showCompB.Name = "showCompB";
+            this.showCompB.Size = new System.Drawing.Size(350, 31);
+            this.showCompB.TabIndex = 7;
+            this.showCompB.Text = "Показать участников";
+            this.showCompB.UseVisualStyleBackColor = true;
+            this.showCompB.UseWaitCursor = true;
+            this.showCompB.Click += new System.EventHandler(this.showCompB_Click);
+            // 
             // EventEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 505);
+            this.Controls.Add(this.showCompB);
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.save);
@@ -113,7 +127,7 @@
             this.Controls.Add(this.desctext);
             this.Controls.Add(this.arttext);
             this.Name = "EventEdit";
-            this.Text = "Редактирование заявки";
+            this.Text = "Создание/Редактирование события";
             this.Load += new System.EventHandler(this.EventEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,5 +143,6 @@
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button CancelB;
         private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Button showCompB;
     }
 }

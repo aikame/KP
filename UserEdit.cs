@@ -31,34 +31,58 @@ namespace KP
 
         private void Save ()
         {
-            UserModel _user = new UserModel();
-            _user.Login = LoginBox.Text;
-            _user.Password = PasswordBox.Text;
-            switch (AccoutLevelBox.SelectedIndex)
+            if (LoginBox.Text != null && PasswordBox.Text != null)
             {
-                case 0: _user.AccountLevel = 0; break;
-                case 1: _user.AccountLevel = 1; break;
-                case 2: _user.AccountLevel = 2; break;
-                default: _user.AccountLevel = 0; break;
+                UserModel _user = new UserModel();
+                _user.Login = LoginBox.Text;
+                _user.Password = PasswordBox.Text;
+                switch (AccoutLevelBox.SelectedIndex)
+                {
+                    case 0: _user.AccountLevel = 0; break;
+                    case 1: _user.AccountLevel = 1; break;
+                    case 2: _user.AccountLevel = 2; break;
+                    default: _user.AccountLevel = 0; break;
+                }
+                _db.UpdateUser(_user);
+                _parent.Reload();
+                Close();
             }
-            _db.UpdateUser(_user);
-            _parent.Reload();
-            Close();
+            else
+            {
+                MessageBox.Show(
+                    "Обнаружены пустые поля!", 
+                    "Ошибка!", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error
+                    );
+            }
         }
         private void Edit ()
         {
-            _user.Login = LoginBox.Text;
-            _user.Password = PasswordBox.Text;
-            switch (AccoutLevelBox.SelectedIndex)
+            if (LoginBox.Text != null && PasswordBox.Text != null)
             {
-                case 0: _user.AccountLevel = 0; break;
-                case 1: _user.AccountLevel = 1; break;
-                case 2: _user.AccountLevel = 2; break;
-                default: _user.AccountLevel = 0; break;
+                _user.Login = LoginBox.Text;
+                _user.Password = PasswordBox.Text;
+                switch (AccoutLevelBox.SelectedIndex)
+                {
+                    case 0: _user.AccountLevel = 0; break;
+                    case 1: _user.AccountLevel = 1; break;
+                    case 2: _user.AccountLevel = 2; break;
+                    default: _user.AccountLevel = 0; break;
+                }
+                _db.UpdateUser(_user);
+                _parent.Reload();
+                Close();
             }
-            _db.UpdateUser(_user);
-            _parent.Reload();
-            Close();
+            else
+            {
+                MessageBox.Show(
+                    "Обнаружены пустые поля!",
+                    "Ошибка!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
         }
 
         private void saveB_Click(object sender, EventArgs e)
@@ -77,9 +101,12 @@ namespace KP
                 PasswordBox.Text = _user.Password;
                 switch (_user.AccountLevel)
                 {
-                    case 0: AccoutLevelBox.SelectedIndex = 0; break;
-                    case 1: AccoutLevelBox.SelectedIndex = 1; break;
-                    case 2: AccoutLevelBox.SelectedIndex = 2; break;
+                    case 0: AccoutLevelBox.
+                            SelectedIndex = 0; break;
+                    case 1: AccoutLevelBox.
+                            SelectedIndex = 1; break;
+                    case 2: AccoutLevelBox.
+                            SelectedIndex = 2; break;
                 }
             }
         }
