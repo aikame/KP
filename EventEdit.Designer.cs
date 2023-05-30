@@ -72,9 +72,9 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(30, 460);
+            this.save.Location = new System.Drawing.Point(16, 452);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(165, 23);
+            this.save.Size = new System.Drawing.Size(165, 31);
             this.save.TabIndex = 4;
             this.save.Text = "Сохранить";
             this.save.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // 
             // CancelB
             // 
-            this.CancelB.Location = new System.Drawing.Point(201, 460);
+            this.CancelB.Location = new System.Drawing.Point(201, 452);
             this.CancelB.Name = "CancelB";
-            this.CancelB.Size = new System.Drawing.Size(165, 23);
+            this.CancelB.Size = new System.Drawing.Size(165, 31);
             this.CancelB.TabIndex = 5;
             this.CancelB.Text = "Отмена";
             this.CancelB.UseVisualStyleBackColor = true;
@@ -96,9 +96,9 @@
             this.authorLabel.AutoSize = true;
             this.authorLabel.Location = new System.Drawing.Point(13, 425);
             this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(91, 13);
+            this.authorLabel.Size = new System.Drawing.Size(52, 13);
             this.authorLabel.TabIndex = 6;
-            this.authorLabel.Text = "Автор - %автор%";
+            this.authorLabel.Text = "%автор%";
             // 
             // EventEdit
             // 

@@ -28,19 +28,19 @@
     /// </summary>
     private void InitializeComponent()
     {
-            this.createReq = new System.Windows.Forms.Button();
+            this.createB = new System.Windows.Forms.Button();
             this.ReqBox = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // createReq
+            // createB
             // 
-            this.createReq.Location = new System.Drawing.Point(13, 397);
-            this.createReq.Name = "createReq";
-            this.createReq.Size = new System.Drawing.Size(426, 41);
-            this.createReq.TabIndex = 1;
-            this.createReq.Text = "Создать заявку";
-            this.createReq.UseVisualStyleBackColor = true;
-            this.createReq.Click += new System.EventHandler(this.createReq_Click);
+            this.createB.Location = new System.Drawing.Point(13, 397);
+            this.createB.Name = "createB";
+            this.createB.Size = new System.Drawing.Size(426, 41);
+            this.createB.TabIndex = 1;
+            this.createB.Text = "Создать заявку";
+            this.createB.UseVisualStyleBackColor = true;
+            this.createB.Click += new System.EventHandler(this.createReq_Click);
             // 
             // ReqBox
             // 
@@ -64,7 +64,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 450);
             this.Controls.Add(this.ReqBox);
-            this.Controls.Add(this.createReq);
+            this.Controls.Add(this.createB);
             this.Name = "RequestMenu";
             this.Text = "Заявки";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -73,7 +73,7 @@
     }
 
         #endregion
-        private System.Windows.Forms.Button createReq;
+        private System.Windows.Forms.Button createB;
         private System.Windows.Forms.ListView ReqBox;
     }
 }

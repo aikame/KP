@@ -1,9 +1,6 @@
 ﻿using KP.BD;
 using KP.BD.Models;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace KP

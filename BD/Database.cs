@@ -17,6 +17,11 @@ namespace KP.BD
 
         public void AddUser (UserModel user)
         {
+            if (_context.User.AsEnumerable().Where(u => u.Login == user.Login && u.Password == user.Password).Any())
+            {
+                MessageBox.Show("Пользователь с такими данными уже существует!");
+                return;
+            }
             _context.User.Add(user);
             _context.SaveChanges();
         }
@@ -27,7 +32,7 @@ namespace KP.BD
             _context.SaveChanges();
         }
 
-        public void UpdateUser (UserModel prevUser, UserModel newUser)
+        public void UpdateUser (UserModel newUser)
         {
             _context.User.AddOrUpdate(newUser);
             _context.SaveChanges();
@@ -60,9 +65,9 @@ namespace KP.BD
             return _context.User.AsEnumerable().ToList();
         }
 
-        public List<UserModel> GetUserById (int id)
+        public UserModel GetUserById (int id)
         {
-            return _context.User.AsEnumerable().Where(u => u.UserId == id).ToList();
+            return _context.User.AsEnumerable().Where(u => u.UserId == id).FirstOrDefault();
         }
 
         public List<RequestModel> GetRequestsByUser (UserModel user) 

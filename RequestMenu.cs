@@ -17,25 +17,13 @@ namespace KP
             InitializeComponent();
         }
 
-        private void Edit(RequestModel req)
+        public void ReloadForm ()
         {
-            var window = new RequestEdit(this, RequestEdit.windowmode.update, _db, req);
-            window.Show();
+            ReqBox.Clear();
+            this.Loader();
         }
 
-        private void Create()
-        {
-            var window = new RequestEdit(this, RequestEdit.windowmode.create, _db, null);
-            window.Show();
-        }
-
-        private void Acceptance (RequestModel req)
-        {
-            var window = new RequestEdit(this, RequestEdit.windowmode.approve, _db, req);
-            window.Show();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void Loader ()
         {
             if (Auth.CurrentUser.AccountLevel < 1)
             {
@@ -52,7 +40,7 @@ namespace KP
                     }
                     ReqBox.Items.Add(TempItem);
                 }
-                createReq.Enabled = true;
+                createB.Enabled = true;
             }
             else
             {
@@ -69,8 +57,31 @@ namespace KP
                     }
                     ReqBox.Items.Add(TempItem);
                 }
-                createReq.Enabled = false;
+                createB.Enabled = false;
             }
+        }
+
+        private void Edit(RequestModel req)
+        {
+            var window = new RequestEdit(this, RequestEdit.windowmode.update, _db, req);
+            window.ShowDialog();
+        }
+
+        private void Create()
+        {
+            var window = new RequestEdit(this, RequestEdit.windowmode.create, _db, null);
+            window.ShowDialog();
+        }
+
+        private void Acceptance (RequestModel req)
+        {
+            var window = new RequestEdit(this, RequestEdit.windowmode.approve, _db, req);
+            window.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Loader();
         }
 
         private void createReq_Click(object sender, EventArgs e)

@@ -106,7 +106,8 @@
             this.Controls.Add(this.NameMls);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Auth";
-            this.Text = "MLS (Авторизация)";            this.ResumeLayout(false);
+            this.Text = "MLS (Авторизация)";
+            this.ResumeLayout(false);
             this.PerformLayout();
 
         }

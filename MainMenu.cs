@@ -15,8 +15,8 @@ namespace KP
 {
     public partial class MainMenu : Form
     {
-        string _name { get; set; }
-        Database _db { get; set; }
+        readonly string _name;
+        readonly Database _db;
         public MainMenu(string name, Database db)
         {
             _name = name;
@@ -34,7 +34,19 @@ namespace KP
         private void requestB_Click(object sender, EventArgs e)
         {
             var window = new RequestMenu(_db);
-            window.Show();
+            window.ShowDialog();
+        }
+
+        private void usersB_Click(object sender, EventArgs e)
+        {
+            var window = new Users(_db);
+            window.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var window = new EventMenu(_db);
+            window.ShowDialog();
         }
     }
 }

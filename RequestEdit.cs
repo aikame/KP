@@ -17,9 +17,9 @@ namespace KP
         }
         readonly windowmode _mode;
         readonly Database _db;
-        RequestModel? _requestModel;
-        readonly Form _parent;
-        public RequestEdit(Form parent, windowmode mode, Database db, RequestModel? rq)
+        readonly RequestModel? _requestModel;
+        readonly RequestMenu _parent;
+        public RequestEdit(RequestMenu parent, windowmode mode, Database db, RequestModel? rq)
         {
             _parent = parent;
             _mode = mode;
@@ -27,7 +27,6 @@ namespace KP
             _requestModel = rq;
             InitializeComponent();
         }
-
         private void Save ()
         {
             if (artbox != null && descbox != null)
@@ -49,12 +48,13 @@ namespace KP
                             var result = MessageBox.Show("Изменений нет!",
                                                         "Внимание!", 
                                                         MessageBoxButtons.OK);
+                            Close();
                         }
                         else 
                             _db.UpdateRequest(NewRequest); 
                         break;
                 }
-                _parent.Update();
+                _parent.ReloadForm();
                 Close();
             }
             else
@@ -95,6 +95,7 @@ namespace KP
                 RequestModel newRequest = _requestModel;
                 newRequest.Status = true;
                 _db.UpdateRequest(newRequest);
+                _parent.ReloadForm();
             }
             else
                 Save();
@@ -107,6 +108,7 @@ namespace KP
                 RequestModel newRequest = _requestModel;
                 newRequest.Status = false;
                 _db.UpdateRequest(newRequest);
+                _parent.ReloadForm();
             }
             Close();
         }

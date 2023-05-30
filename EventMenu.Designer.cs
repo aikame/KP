@@ -28,47 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.eventButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.createB = new System.Windows.Forms.Button();
+            this.EventView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // createB
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(451, 389);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.createB.Location = new System.Drawing.Point(13, 408);
+            this.createB.Name = "createB";
+            this.createB.Size = new System.Drawing.Size(450, 30);
+            this.createB.TabIndex = 1;
+            this.createB.Text = "Создать событие";
+            this.createB.UseVisualStyleBackColor = true;
+            this.createB.Click += new System.EventHandler(this.createB_Click);
             // 
-            // eventButton
+            // EventView
             // 
-            this.eventButton.Location = new System.Drawing.Point(13, 408);
-            this.eventButton.Name = "eventButton";
-            this.eventButton.Size = new System.Drawing.Size(450, 30);
-            this.eventButton.TabIndex = 1;
-            this.eventButton.Text = "Создать событие";
-            this.eventButton.UseVisualStyleBackColor = true;
-            this.eventButton.Click += new System.EventHandler(this.eventButton_Click);
+            this.EventView.FullRowSelect = true;
+            this.EventView.GridLines = true;
+            this.EventView.HideSelection = false;
+            this.EventView.Location = new System.Drawing.Point(12, 12);
+            this.EventView.Name = "EventView";
+            this.EventView.Size = new System.Drawing.Size(451, 390);
+            this.EventView.TabIndex = 2;
+            this.EventView.UseCompatibleStateImageBehavior = false;
+            this.EventView.View = System.Windows.Forms.View.List;
             // 
             // EventMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 450);
-            this.Controls.Add(this.eventButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.EventView);
+            this.Controls.Add(this.createB);
             this.Name = "EventMenu";
             this.Text = "EventMenu";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.EventMenu_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button eventButton;
+        private System.Windows.Forms.Button createB;
+        private System.Windows.Forms.ListView EventView;
     }
 }

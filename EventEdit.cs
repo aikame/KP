@@ -8,22 +8,32 @@ namespace KP
 {
     public partial class EventEdit : Form
     {
-        readonly DataContext db;
-        readonly bool m;
-        EventModel em;
-        public EventEdit(bool mode, DataContext database)
+        readonly Database _db;
+        readonly EventModel? _event;
+        readonly bool _mode;
+        readonly EventMenu _parent;
+        public EventEdit(EventMenu parent, Database db)
         {
-            db = database;
-            m = mode;
-            em = new EventModel();
-            // Режим 0 - создание
-            // Режим 1 - редактирование
             InitializeComponent();
+            _db = db;
+            _parent = parent;
+        }
+
+        public EventEdit(EventMenu parent, Database db, EventModel ev)
+        {
+            InitializeComponent();
+            _db = db;
+            _event = ev;
+            _parent = parent;
         }
 
         private void EventEdit_Load(object sender, EventArgs e)
         {
-
+            if (Auth.CurrentUser.AccountLevel < 1)
+            {
+                save.Text = "Принять участие";
+                CancelB.Text = "Отказаться";
+            }
         }
 
         private void save_Click(object sender, EventArgs e)
