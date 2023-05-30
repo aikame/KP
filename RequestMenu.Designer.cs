@@ -30,13 +30,14 @@
     {
             this.createB = new System.Windows.Forms.Button();
             this.ReqBox = new System.Windows.Forms.ListView();
+            this.deleteB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // createB
             // 
             this.createB.Location = new System.Drawing.Point(13, 397);
             this.createB.Name = "createB";
-            this.createB.Size = new System.Drawing.Size(426, 41);
+            this.createB.Size = new System.Drawing.Size(208, 41);
             this.createB.TabIndex = 1;
             this.createB.Text = "Создать заявку";
             this.createB.UseVisualStyleBackColor = true;
@@ -58,11 +59,22 @@
             this.ReqBox.View = System.Windows.Forms.View.List;
             this.ReqBox.DoubleClick += new System.EventHandler(this.ReqBox_DoubleClick);
             // 
+            // deleteB
+            // 
+            this.deleteB.Location = new System.Drawing.Point(227, 397);
+            this.deleteB.Name = "deleteB";
+            this.deleteB.Size = new System.Drawing.Size(212, 41);
+            this.deleteB.TabIndex = 3;
+            this.deleteB.Text = "Удалить заявку";
+            this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
+            // 
             // RequestMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 450);
+            this.Controls.Add(this.deleteB);
             this.Controls.Add(this.ReqBox);
             this.Controls.Add(this.createB);
             this.Name = "RequestMenu";
@@ -75,5 +87,6 @@
         #endregion
         private System.Windows.Forms.Button createB;
         private System.Windows.Forms.ListView ReqBox;
+        private System.Windows.Forms.Button deleteB;
     }
 }

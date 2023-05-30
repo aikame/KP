@@ -35,9 +35,9 @@
             // 
             // createB
             // 
-            this.createB.Location = new System.Drawing.Point(13, 408);
+            this.createB.Location = new System.Drawing.Point(13, 395);
             this.createB.Name = "createB";
-            this.createB.Size = new System.Drawing.Size(214, 30);
+            this.createB.Size = new System.Drawing.Size(225, 43);
             this.createB.TabIndex = 1;
             this.createB.Text = "Создать событие";
             this.createB.UseVisualStyleBackColor = true;
@@ -51,16 +51,16 @@
             this.EventView.HideSelection = false;
             this.EventView.Location = new System.Drawing.Point(12, 12);
             this.EventView.Name = "EventView";
-            this.EventView.Size = new System.Drawing.Size(451, 390);
+            this.EventView.Size = new System.Drawing.Size(451, 377);
             this.EventView.TabIndex = 2;
             this.EventView.UseCompatibleStateImageBehavior = false;
             this.EventView.View = System.Windows.Forms.View.List;
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(233, 408);
+            this.deleteB.Location = new System.Drawing.Point(244, 395);
             this.deleteB.Name = "deleteB";
-            this.deleteB.Size = new System.Drawing.Size(230, 30);
+            this.deleteB.Size = new System.Drawing.Size(219, 43);
             this.deleteB.TabIndex = 3;
             this.deleteB.Text = "Удалить событие";
             this.deleteB.UseVisualStyleBackColor = true;

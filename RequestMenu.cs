@@ -39,8 +39,7 @@ namespace KP
                         default: TempItem.BackColor = Color.White; break;
                     }
                     ReqBox.Items.Add(TempItem);
-                }
-                createB.Enabled = true;
+                } 
             }
             else
             {
@@ -58,6 +57,7 @@ namespace KP
                     ReqBox.Items.Add(TempItem);
                 }
                 createB.Enabled = false;
+                deleteB.Enabled = false;
             }
         }
 
@@ -92,10 +92,18 @@ namespace KP
         private void ReqBox_DoubleClick(object sender, EventArgs e)
         {
             var req = _db.GetRequestById(Convert.ToInt16(ReqBox.SelectedItems[0].SubItems[1].Text));
-            if (Auth.CurrentUser.AccountLevel < 1)
+            if (Auth.CurrentUser.AccountLevel < 1 && req != null)
                 Edit(req);
             else
                 Acceptance(req);
+        }
+
+        private void deleteB_Click(object sender, EventArgs e)
+        {
+            var req = _db.GetRequestById(Convert.ToInt16(ReqBox.SelectedItems[0].SubItems[1].Text));
+            if (req != null)
+                _db.RemoveRequest(req);
+            ReloadForm();
         }
     }
 }
