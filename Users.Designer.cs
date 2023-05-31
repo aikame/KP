@@ -65,7 +65,7 @@
             this.usersBox.TabIndex = 3;
             this.usersBox.UseCompatibleStateImageBehavior = false;
             this.usersBox.View = System.Windows.Forms.View.List;
-            this.usersBox.DoubleClick += new System.EventHandler(this.usersBox_DoubleClick);
+            this.usersBox.DoubleClick += new System.EventHandler(this.UsersBox_DoubleClick);
             // 
             // Users
             // 

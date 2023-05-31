@@ -55,6 +55,7 @@
             this.EventView.TabIndex = 2;
             this.EventView.UseCompatibleStateImageBehavior = false;
             this.EventView.View = System.Windows.Forms.View.List;
+            this.EventView.DoubleClick += new System.EventHandler(this.EventView_DoubleClick);
             // 
             // deleteB
             // 

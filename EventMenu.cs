@@ -66,5 +66,12 @@ namespace KP
 
             }
         }
+
+        private void EventView_DoubleClick(object sender, EventArgs e)
+        {
+            var Event = _db.GetEventById(Convert.ToInt16(EventView.SelectedItems[0].SubItems[1].Text));
+            var EventEditWindow = new EventEdit(this, _db, Event);
+            EventEditWindow.ShowDialog();
+        }
     }
 }

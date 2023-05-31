@@ -34,8 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
             this.CancelB = new System.Windows.Forms.Button();
-            this.authorLabel = new System.Windows.Forms.Label();
             this.showCompB = new System.Windows.Forms.Button();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // arttext
@@ -50,7 +50,7 @@
             this.desctext.Location = new System.Drawing.Point(12, 196);
             this.desctext.Multiline = true;
             this.desctext.Name = "desctext";
-            this.desctext.Size = new System.Drawing.Size(370, 213);
+            this.desctext.Size = new System.Drawing.Size(370, 176);
             this.desctext.TabIndex = 1;
             // 
             // label1
@@ -58,18 +58,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Тема заявки";
+            this.label1.Text = "Событие";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Текст заявки";
+            this.label2.Text = "Описание события";
             // 
             // save
             // 
@@ -93,15 +93,6 @@
             this.CancelB.UseWaitCursor = true;
             this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
             // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.Location = new System.Drawing.Point(13, 425);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(52, 13);
-            this.authorLabel.TabIndex = 6;
-            this.authorLabel.Text = "%автор%";
-            // 
             // showCompB
             // 
             this.showCompB.Location = new System.Drawing.Point(16, 26);
@@ -113,13 +104,20 @@
             this.showCompB.UseWaitCursor = true;
             this.showCompB.Click += new System.EventHandler(this.showCompB_Click);
             // 
+            // DateTimePicker
+            // 
+            this.DateTimePicker.Location = new System.Drawing.Point(16, 413);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePicker.TabIndex = 8;
+            // 
             // EventEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 505);
+            this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.showCompB);
-            this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.save);
             this.Controls.Add(this.label2);
@@ -142,7 +140,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button CancelB;
-        private System.Windows.Forms.Label authorLabel;
         private System.Windows.Forms.Button showCompB;
+        private System.Windows.Forms.DateTimePicker DateTimePicker;
     }
 }

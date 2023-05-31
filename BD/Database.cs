@@ -103,7 +103,7 @@ namespace KP.BD
         }
 
         // Получение данных
-        public UserModel getAuth(string login, string password)
+        public UserModel GetAuth(string login, string password)
         {
             return _context.User.AsEnumerable().Where(u => u.Login == login && u.Password == password).FirstOrDefault();
         }
@@ -111,6 +111,11 @@ namespace KP.BD
         public List<UserModel> GetUsers()
         {
             return _context.User.AsEnumerable().ToList();
+        }
+
+        public int GetDirectorCount ()
+        {
+            return _context.User.AsEnumerable().Where(u => u.AccountLevel == 2).Count();
         }
 
         public UserModel GetUserById (int id)

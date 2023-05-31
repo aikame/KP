@@ -23,7 +23,6 @@ namespace KP
         {
             _mode = windowmode.create;
             InitializeComponent();
-            _event = new EventModel();
             _db = db;
             _parent = parent;
         }
@@ -44,9 +43,11 @@ namespace KP
         {
             if (arttext.Text.Length > 0 && desctext.Text.Length > 0)
             {
-                _event.Article = arttext.Text;
-                _event.Description = desctext.Text;
-                _db.AddEvent(_event);
+                var Event = new EventModel();
+                Event.Article = arttext.Text;
+                Event.Description = desctext.Text;
+                Event.DateTime = DateTimePicker.Value;
+                _db.AddEvent(Event);
             }
             else
             {
@@ -68,6 +69,7 @@ namespace KP
                 {
                     Article = arttext.Text,
                     Description = desctext.Text,
+                    DateTime = DateTimePicker.Value
                 };
 
                 _db.UpdateEvent(_event, newEvent);
@@ -87,9 +89,16 @@ namespace KP
                 CancelB.Text = "Отказаться";
                 arttext.Enabled = false;
                 desctext.Enabled = false;
+                DateTimePicker.Enabled = false;
             }
             if (_mode == windowmode.create)
                 showCompB.Hide();
+            if (_event != null)
+            {
+                arttext.Text = _event.Article;
+                desctext.Text = _event.Description;
+                DateTimePicker.Value = _event.DateTime;
+            }
         }
 
         private void save_Click(object sender, EventArgs e)

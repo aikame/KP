@@ -17,7 +17,7 @@ namespace KP
 
         private void Enter_Click(object sender, EventArgs e)
         {
-            CurrentUser = Db.getAuth(loginbox.Text, passwordbox.Text);
+            CurrentUser = Db.GetAuth(loginbox.Text, passwordbox.Text);
             if (CurrentUser != null ) {
                 this.Hide();
                 string name = CurrentUser.Login;

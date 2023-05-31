@@ -1,5 +1,4 @@
 ﻿using KP.BD;
-using KP.BD.Models;
 using System;
 using System.Windows.Forms;
 
@@ -43,7 +42,7 @@ namespace KP
             }
         }
 
-        private void usersBox_DoubleClick(object sender, EventArgs e)
+        private void UsersBox_DoubleClick(object sender, EventArgs e)
         {
             var user = _db.GetUserById(Convert.ToInt16(usersBox.SelectedItems[0].SubItems[1].Text));
             var userEditWindow = new UserEdit(this, _db, user);
@@ -52,14 +51,27 @@ namespace KP
 
         private void DeleteB_Click(object sender, EventArgs e)
         {
+            if (_db.GetDirectorCount() > 0 )
+            {
+                MessageBox.Show(
+                    "Нельзя удалить единственного директора!",
+                    "Ошибка!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
             var user = _db.GetUserById(Convert.ToInt16(usersBox.SelectedItems[0].SubItems[1].Text));
             if (user == null)
             {
                 return;
             }
-            var result = MessageBox.Show("Вы уверены, что хотите удалить пользователя?",
-     "Подтвердите действие",
-     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show(
+                "Вы уверены, что хотите удалить пользователя?",
+                "Подтвердите действие",
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question
+                );
             if (result == DialogResult.Yes)
             {
                 _db.RemoveUser(user);

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace KP.BD.Models
 {
@@ -8,5 +9,6 @@ namespace KP.BD.Models
         public int EventId { set; get; }
         public string Article { set; get; }
         public string Description { set; get; }
+        public DateTime DateTime { set; get; }
     }
 }
