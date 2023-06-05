@@ -70,13 +70,33 @@ namespace KP
             {
                 authorLabel.Text = " ";
             }
+            switch (_mode) 
+            { 
+                case windowmode.approve:
+                    saveB.Text = "Принять";
+                    cancelB.Text = "Отклонить";
+                    this.Text = "Рассмотрение заявки";
+                    artbox.Enabled = false;
+                    descbox.Enabled = false;
+                    break;
+                case windowmode.update:
+                    saveB.Text = "Сохранить";
+                    cancelB.Text = "Отменить";
+                    this.Text = "Редактирование заявки";
+                    artbox.Enabled = true;
+                    descbox.Enabled = true;
+                    break;
+                case windowmode.create:
+                    saveB.Text = "Сохранить";
+                    cancelB.Text = "Отменить";
+                    this.Text = "Создание заявки";
+                    artbox.Enabled = true;
+                    descbox.Enabled = true;
+                    break;
+            }
             if (_mode == windowmode.approve)
             {
-                saveB.Text = "Принять";
-                cancelB.Text = "Отклонить";
-                this.Text = "Рассмотрение заявки";
-                artbox.Enabled = false;
-                descbox.Enabled = false;
+
             }
         }
 

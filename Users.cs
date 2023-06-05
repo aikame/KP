@@ -51,7 +51,8 @@ namespace KP
 
         private void DeleteB_Click(object sender, EventArgs e)
         {
-            if (_db.GetDirectorCount() > 0 )
+            var user = _db.GetUserById(Convert.ToInt16(usersBox.SelectedItems[0].SubItems[1].Text));
+            if (_db.GetDirectorCount() == 1 &&  user.AccountLevel == 2)
             {
                 MessageBox.Show(
                     "Нельзя удалить единственного директора!",
@@ -61,7 +62,7 @@ namespace KP
                     );
                 return;
             }
-            var user = _db.GetUserById(Convert.ToInt16(usersBox.SelectedItems[0].SubItems[1].Text));
+            
             if (user == null)
             {
                 return;

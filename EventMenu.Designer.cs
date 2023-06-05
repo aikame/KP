@@ -76,7 +76,7 @@
             this.Controls.Add(this.EventView);
             this.Controls.Add(this.createB);
             this.Name = "EventMenu";
-            this.Text = "EventMenu";
+            this.Text = "События";
             this.Load += new System.EventHandler(this.EventMenu_Load);
             this.ResumeLayout(false);
 

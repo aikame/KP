@@ -99,6 +99,18 @@ namespace KP
                 desctext.Text = _event.Description;
                 DateTimePicker.Value = _event.DateTime;
             }
+            switch(_mode)
+            {
+                case windowmode.create:
+                    this.Text = "Создание события";
+                    break;
+                case windowmode.update:
+                    this.Text = "Редактирование события";
+                    break;
+                case windowmode.approve:
+                    this.Text = "Принятие участия в событии";
+                    break;
+            }
         }
 
         private void save_Click(object sender, EventArgs e)
