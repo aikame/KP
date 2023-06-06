@@ -51,7 +51,7 @@
             this.usersB.Name = "usersB";
             this.usersB.Size = new System.Drawing.Size(299, 57);
             this.usersB.TabIndex = 1;
-            this.usersB.Text = "Сотрудники";
+            this.usersB.Text = "Пользователи";
             this.usersB.UseVisualStyleBackColor = true;
             this.usersB.Click += new System.EventHandler(this.usersB_Click);
             // 

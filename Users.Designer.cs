@@ -76,7 +76,7 @@
             this.Controls.Add(this.DeleteB);
             this.Controls.Add(this.AddB);
             this.Name = "Users";
-            this.Text = "Users";
+            this.Text = "Пользователи";
             this.Load += new System.EventHandler(this.Users_Load);
             this.ResumeLayout(false);
 

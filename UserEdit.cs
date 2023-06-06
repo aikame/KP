@@ -109,6 +109,14 @@ namespace KP
                             SelectedIndex = 2; break;
                 }
             }
+            if (_flag)
+            {
+                this.Text = "Редактирование пользователя";
+            }
+            else
+            {
+                this.Text = "Создание пользователя";
+            }
         }
     }
 }
