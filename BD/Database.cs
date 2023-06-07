@@ -98,6 +98,11 @@ namespace KP.BD
                 EventId = Event.EventId,
                 IsCompetite = IsCompetitor,
             };
+            var checker = _context.CompetitorModel.AsEnumerable().Where(c => c.UserId == User.UserId && c.EventId == Event.EventId).FirstOrDefault();
+            if (checker != null) 
+            {
+               _context.CompetitorModel.Remove(checker);
+            }
             _context.CompetitorModel.AddOrUpdate(newComp);
             _context.SaveChanges();
         }
@@ -155,7 +160,7 @@ namespace KP.BD
 
         public List<CompetitorModel> GetCompetitorsByEvent (EventModel evt) 
         {
-            return _context.CompetitorModel.AsEnumerable().Where(c => c.EventId == evt.EventId).ToList();
+            return _context.CompetitorModel.AsEnumerable().Where(c => c.EventId == evt.EventId && c.IsCompetite == true).ToList();
         }
     }
 }
